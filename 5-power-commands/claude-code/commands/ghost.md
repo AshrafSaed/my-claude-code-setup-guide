@@ -1,5 +1,5 @@
 ---
-description: ניסוח טבעי ואנושי, בלי סגנון AI
+description: Write or rewrite text so it sounds natural and human, without AI-style filler
 ---
 Rewrite or write the following so it reads as natural, direct human writing.
 

@@ -1,5 +1,5 @@
 ---
-description: פתרון בעזרת מסגרת OODA (Observe, Orient, Decide, Act)
+description: Analyze a problem or decision with the OODA loop (Observe, Orient, Decide, Act)
 ---
 Handle the following request using the OODA loop. Use exactly these four sections:
 
