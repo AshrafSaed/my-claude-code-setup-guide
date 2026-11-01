@@ -67,7 +67,26 @@ New-Item -ItemType Directory -Force "$HOME\.claude\commands"; Copy-Item .\claude
 
 ## Install: Claude.ai (web / mobile app)
 
-Slash commands from files are not supported there. Use the shared definitions in `chatgpt/custom-instructions.md` (the text works for Claude too): paste it into **Settings → Profile → preferences**, or into a Project's instructions. Then type e.g. `/ooda ...` in the chat.
+Files in `~/.claude/commands` are only read by **Claude Code**, not by the regular chat. In the chat, the `/` menu lists **Skills**, so use the five skills in `skills/` instead:
+
+1. Each skill is a folder with one `SKILL.md` file (`skills/ooda/`, `skills/ghost/`, `skills/l99/`, `skills/artifacts/`, `skills/godmode/`).
+2. Zip each skill folder so that `SKILL.md` sits inside the folder inside the zip (for example `ooda.zip` containing `ooda/SKILL.md`).
+3. In Claude, open the skills/capabilities settings and upload the zip files. Menu names can differ between app versions.
+4. Start a new chat and type `/ooda`, `/ghost`, `/l99`, `/artifacts` or `/godmode`. Names are lower-case.
+
+Alternative without skills: paste `chatgpt/custom-instructions.md` into **Settings → Profile → preferences**, or into a Project's instructions. Then type e.g. `/ooda ...` in the chat.
+
+### The five skills
+
+| Skill | Triggers when you type | What it does |
+|---|---|---|
+| `ooda` | `/ooda` | Observe, Orient, Decide, Act: structured analysis of a problem or decision |
+| `ghost` | `/ghost` | Writes or rewrites text to sound natural and human |
+| `l99` | `/l99` | Senior-expert answer with one committed recommendation, trade-offs and failure modes |
+| `artifacts` | `/artifacts` | Builds a self-contained interactive HTML page (calculator, dashboard, tool) |
+| `godmode` | `/godmode` | Most comprehensive structured treatment of a topic, with risks and an action plan |
+
+Claude Code commands and chat skills do the same job in different places: use `claude-code/commands/` for Claude Code and `skills/` for the chat.
 
 ## Install: ChatGPT
 
@@ -82,8 +101,10 @@ Menu names can change between app versions; look for "Custom instructions" or "I
 ## Repository layout
 
 ```
-claude-code/commands/   ooda.md ghost.md l99.md artifacts.md godmode.md
+claude-code/commands/   ooda.md ghost.md l99.md artifacts.md godmode.md   (Claude Code)
+skills/<name>/SKILL.md  ooda ghost l99 artifacts godmode                    (Claude chat skills)
 chatgpt/custom-instructions.md   all five definitions in one block
+install.ps1             Windows installer for the Claude Code commands
 README.md
 ```
 
